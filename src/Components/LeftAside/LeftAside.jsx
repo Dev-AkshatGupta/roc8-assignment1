@@ -5,6 +5,9 @@ const LeftAside = () => {
   const {filterDispatch,filterState}=useFilter();
   return (
     <div className="layout-aside__container">
+      <button
+      onClick={()=>filterDispatch({type:"CLEAR"})}
+      >Clear All</button>
       <p className="fs-5 text">Sort</p>
       <ul>
         <li>
@@ -84,7 +87,7 @@ const LeftAside = () => {
           <label htmlFor="jewelery">Jewelery</label>
         </li>
       </ul>
-      <p className="fs-5 text">Size</p>
+      {/* <p className="fs-5 text">Size</p>
       <ul>
         <li>
           <input type="checkbox" id="Small" checked={true} />
@@ -98,7 +101,7 @@ const LeftAside = () => {
           <input type="checkbox" id="large" checked={true} />
           <label htmlFor="large">Large</label>
         </li>
-      </ul>
+      </ul> */}
       <p className="fs-5 text">Brand</p>
       <ul>
         <li>

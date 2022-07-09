@@ -74,7 +74,14 @@ const FilterProvider = ({ children }) => {
           };
         }
       }
-
+case "CLEAR":
+  return {
+    products,
+    productsBackUp: products,
+    sort: "",
+    category: [],
+    brand: [],
+  };
 
       default:
         break;
@@ -85,7 +92,7 @@ const FilterProvider = ({ children }) => {
     productsBackUp: products,
     sort: "",
     category: [],
-    brand:[]
+    brand:[],
   });
   return (
     <FilterContext.Provider value={{ filterState, filterDispatch }}>
