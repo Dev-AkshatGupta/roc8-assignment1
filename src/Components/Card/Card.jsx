@@ -3,16 +3,21 @@ import "./Card.css";
 const Card = ({item}) => {
 
   return (
-    <div className="card max-width-20">
-      <img className="card-img-top" src={item.image} alt="products" />
-      <div className="card-body">
-        <h5 className="card-title">{item.title}</h5>
-        <p className="card-text">
-          <small className="text-muted">{item.brand}</small>
-        </p>
-        <p className="card-text">
-          <small className="text-muted">{item.price}</small>
-        </p>
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">{item.title}</h4>
+        <h6 class="card-subtitle text-muted">{item.title}</h6>
+      </div>
+      <img src={item.image} alt="CardImage" />
+      <div class="card-block">
+        <p class="card-text">{item.brand}</p>
+        <p class="card-text">{item.price}</p>
+        <button href="#" class="card-link">
+          Purchase
+        </button>
+        <button href="#" class="card-link">
+          Wishlist{" "}
+        </button>
       </div>
     </div>
   );

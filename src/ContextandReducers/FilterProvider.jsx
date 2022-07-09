@@ -29,7 +29,7 @@ const FilterProvider = ({ children }) => {
           const category = state.category.filter(
             (item) => item !== action.payload
           );
-         
+
           return {
             ...state,
             category,
@@ -51,9 +51,7 @@ const FilterProvider = ({ children }) => {
       }
       case "BRAND": {
         if (state.brand.includes(action.payload)) {
-          const brand = state.brand.filter(
-            (item) => item !== action.payload
-          );
+          const brand = state.brand.filter((item) => item !== action.payload);
 
           return {
             ...state,
@@ -67,21 +65,21 @@ const FilterProvider = ({ children }) => {
           const brand = [...state.brand, action.payload];
           return {
             ...state,
-             brand,
+            brand,
             products: state.productsBackUp.filter((item) => {
               return brand.includes(item.brand);
             }),
           };
         }
       }
-case "CLEAR":
-  return {
-    products,
-    productsBackUp: products,
-    sort: "",
-    category: [],
-    brand: [],
-  };
+      case "CLEAR":
+        return {
+          products,
+          productsBackUp: products,
+          sort: "",
+          category: [],
+          brand: [],
+        };
 
       default:
         break;
@@ -92,7 +90,7 @@ case "CLEAR":
     productsBackUp: products,
     sort: "",
     category: [],
-    brand:[],
+    brand: [],
   });
   return (
     <FilterContext.Provider value={{ filterState, filterDispatch }}>

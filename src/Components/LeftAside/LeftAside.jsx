@@ -87,21 +87,6 @@ const LeftAside = () => {
           <label htmlFor="jewelery">Jewelery</label>
         </li>
       </ul>
-      {/* <p className="fs-5 text">Size</p>
-      <ul>
-        <li>
-          <input type="checkbox" id="Small" checked={true} />
-          <label htmlFor="Small">Small</label>
-        </li>
-        <li>
-          <input type="checkbox" id="Medium" checked={true} />
-          <label htmlFor="Medium">Medium</label>
-        </li>
-        <li>
-          <input type="checkbox" id="large" checked={true} />
-          <label htmlFor="large">Large</label>
-        </li>
-      </ul> */}
       <p className="fs-5 text">Brand</p>
       <ul>
         <li>
