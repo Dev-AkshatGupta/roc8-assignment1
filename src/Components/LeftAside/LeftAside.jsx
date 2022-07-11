@@ -3,6 +3,7 @@ import "./LeftAside.css";
 import { useFilter } from "./../../ContextandReducers/FilterProvider";
 const LeftAside = () => {
   const {filterDispatch,filterState}=useFilter();
+
   return (
     <div className="layout-aside__container">
       <button
@@ -44,6 +45,10 @@ const LeftAside = () => {
             )}
             onChange={() => {
               filterDispatch({ type: "CATEGORY", payload: "men's clothing" });
+              if(filterState.sort){
+                 filterDispatch({
+                   type: filterState.sort               });
+              }
             }}
           />
           <label htmlFor="men">Men</label>
@@ -57,6 +62,12 @@ const LeftAside = () => {
             )}
             onChange={() => {
               filterDispatch({ type: "CATEGORY", payload: "women's clothing" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="women">Women</label>
@@ -71,6 +82,12 @@ const LeftAside = () => {
             )}
             onChange={() => {
               filterDispatch({ type: "CATEGORY", payload: "electronics" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="electronics">Electronics</label>
@@ -82,6 +99,12 @@ const LeftAside = () => {
             checked={filterState.category.some((item) => item === "jewelery")}
             onChange={() => {
               filterDispatch({ type: "CATEGORY", payload: "jewelery" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="jewelery">Jewelery</label>
@@ -96,6 +119,12 @@ const LeftAside = () => {
             checked={filterState.brand.some((item) => item === "john")}
             onChange={() => {
               filterDispatch({ type: "BRAND", payload: "john" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="John">John</label>
@@ -107,6 +136,12 @@ const LeftAside = () => {
             checked={filterState.brand.some((item) => item === "allen")}
             onChange={() => {
               filterDispatch({ type: "BRAND", payload: "allen" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="allen">allen</label>
@@ -118,6 +153,12 @@ const LeftAside = () => {
             checked={filterState.brand.some((item) => item === "Zara")}
             onChange={() => {
               filterDispatch({ type: "BRAND", payload: "Zara" });
+              if (filterState.sort) {
+                filterDispatch({
+                  type: filterState.sort,
+                  
+                });
+              }
             }}
           />
           <label htmlFor="Zara">Zara</label>

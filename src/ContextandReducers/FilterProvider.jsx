@@ -19,7 +19,7 @@ const FilterProvider = ({ children }) => {
       case "PRICE_LOW_TO_HIGH":
         return {
           ...state,
-          products: state.products.sort(({ price: a }, { price: b }) => {
+          products: state.productsBackUp.sort(({ price: a }, { price: b }) => {
             return +a - +b;
           }),
           sort: "PRICE_LOW_TO_HIGH",
@@ -34,17 +34,29 @@ const FilterProvider = ({ children }) => {
             ...state,
             category,
             products: state.productsBackUp.filter((item) => {
-              if (category.length > 0) return category.includes(item.category);
+              if (category.length > 0 && state.brand.length > 0)
+                return (
+                  category.includes(item.category) &&
+                  state.brand.includes(item.brand)
+                );
+                else if(category.length>0) return category.includes(item.category);
+                else if(state.brand.length>0) return state.brand.includes(item.brand);
               else return item;
             }),
           };
         } else {
           const categoryArr = [...state.category, action.payload];
+          
           return {
             ...state,
             category: categoryArr,
             products: state.productsBackUp.filter((item) => {
-              return categoryArr.includes(item.category);
+              if (state.brand.length > 0)
+                return (
+                  categoryArr.includes(item.category) &&
+                  state.brand.includes(item.brand)
+                );
+              else return categoryArr.includes(item.category);
             }),
           };
         }
@@ -57,7 +69,9 @@ const FilterProvider = ({ children }) => {
             ...state,
             brand,
             products: state.productsBackUp.filter((item) => {
-              if (brand.length > 0) return brand.includes(item.brand);
+              if (brand.length > 0 &&state.category.length>0) return brand.includes(item.brand)&& state.category.includes(item.category);
+              else if(brand.length>0) return brand.includes(item.brand);
+              else if(state.category.length>0) return state.category.includes(item.category);
               else return item;
             }),
           };
@@ -67,7 +81,8 @@ const FilterProvider = ({ children }) => {
             ...state,
             brand,
             products: state.productsBackUp.filter((item) => {
-              return brand.includes(item.brand);
+            if(state.category.length>0)  return brand.includes(item.brand)&& state.category.includes(item.category);
+             else  return brand.includes(item.brand);
             }),
           };
         }
